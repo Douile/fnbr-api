@@ -14,6 +14,7 @@ IMAGE_TYPE = "image"
 SHOP_TYPE = "shop"
 # requests
 class APIRequest():
+    """Parent class of all API Requests"""
     def __init__(self,key,endpoint,arguments={}):
         self.key = key
         self.endpoint = endpoint
@@ -33,6 +34,7 @@ class APIRequest():
         self.response = APIResponse(requests.get(url=self.url(),headers=headers))
         return self.response
 class Images(APIRequest):
+    """Images API Request"""
     def __init__(self,key,search=None,type=None,limit=None):
         super().__init__(key,"/images",{})
         self.setSearch(search)
@@ -59,13 +61,16 @@ class Images(APIRequest):
             set = True
         return set
 class Shop(APIRequest):
+    """"Shop API Request"""
     def __init__(self,key):
         super().__init__(key,"/shop",{})
 class Stat(APIRequest):
+    """Stat API Request"""
     def __init__(self,key):
         super().__init__(key,"/stats",{})
 # responses
 class APIResponse():
+    """API Response (formated requests.response)"""
     def __init__(self,response):
         self.headers = response.headers
         try:
@@ -118,6 +123,7 @@ class ImageResponse():
             self.results.append(Item(json['data'][i]))
 
 class Item():
+    """A fortnite shop item"""
     def __init__(self,json={}):
         self.id = self.load('id',json)
         self.name = self.load('name',json)
@@ -139,6 +145,7 @@ class Item():
             value = default
         return value
 class StatItem():
+    """A fnbr category stat item"""
     def __init__(self,json={}):
         self.type = self.load('type',json)
         self.rarity = []
