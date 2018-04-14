@@ -109,6 +109,7 @@ class ShopResponse():
         self.daily = []
         for i in range(0,len(json['data']['daily'])):
             self.daily.append(Item(json['data']['daily'][i]))
+        self.date = json['data']['date']
 class StatResponse():
     def __init__(self,json={}):
         self.totalCosmetics = json['totalCosmetics']
