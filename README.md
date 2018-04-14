@@ -48,7 +48,20 @@ if response.status == 200 and response.type == fnbr.IMAGE_TYPE:
   for item in imagedata.results:
     print('{0}: {1}'.format(item.name,item.price))
 else:
-  print('Error searching images
+  print('Error searching images')
+```
+### Get statistics
+```python
+import fnbr
+
+apikey = 'YOUR_API_KEY'
+request = fnbr.Stat(apikey)
+response = request.send()
+if response.status == 200 and response.type == fnbr.STAT_TYPE:
+  statdata = response.data
+  print('Total cosmetics: {0}'.format(statdata.totalCosmetics))
+else:
+  print('Error getting stats')
 ```
 # Links
 * [pypi](https://pypi.org/project/fnbr-api/)
