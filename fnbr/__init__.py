@@ -9,7 +9,7 @@ VALID_IMAGE_LIMIT_MAX = 15
 
 NONE_TYPE = "none"
 ERROR_TYPE = "error"
-STATS_TYPE = "stats"
+STAT_TYPE = "stats"
 IMAGE_TYPE = "image"
 SHOP_TYPE = "shop"
 # requests
@@ -97,7 +97,7 @@ class APIResponse():
             else:
                 self.type = NONE_TYPE
         elif 'totalCosmetics' in self.json and 'matrix' in self.json:
-            self.type = STATS_TYPE
+            self.type = STAT_TYPE
             self.data = StatResponse(self.json)
         else:
             self.type = NONE_TYPE
