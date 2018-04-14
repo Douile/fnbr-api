@@ -49,7 +49,7 @@ if response.status == 200 and response.type == fnbr.IMAGE_TYPE:
     print('{0}: {1}'.format(item.name,item.price))
 else:
   print('Error searching images
-
+```
 # Links
 * [pypi](https://pypi.org/project/fnbr-api/)
 * [docs](https://github.com/Douile/fnbr-api/wiki)
