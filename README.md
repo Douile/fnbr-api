@@ -1,6 +1,6 @@
 # FNBR API
 A python type API module for [FNBR.co](https://fnbr.co/api).
-
+[Documentation](https://github.com/Douile/fnbr-api/wiki)
 # Installing
 Installing is simple using PyPi.
 ```python
