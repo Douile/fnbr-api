@@ -6,6 +6,10 @@ Asyncronous and non-asyncronous
 
 
 [Documentation](https://github.com/Douile/fnbr-api/wiki)
+# Api keys
+You will need a twitter account to request an api key. To get yours send a request to the great guys over at [fnbr.co in their api channel](https://discord.gg/N9VgqK).
+Simply send a message along the lines of: `Hey I would like to request an api key for [YOUR REASON] my twitter is @[YOUR TWITTER HANDLE].`
+
 # Installing
 Installing is simple using PyPi.
 ```python
