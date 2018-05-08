@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name="fnbr-api",
-    version="1.1.0",
+    version="1.1.1",
     author="Douile",
     description="Python wrapper of the fnbr.co fortnite shop API for ease of use in a python enviroment.",
     long_description=read("README.rst"),

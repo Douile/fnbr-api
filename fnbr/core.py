@@ -43,12 +43,16 @@ class Images(APIRequest):
             if type in constants.VALID_IMAGE_TYPES:
                 self.arguments['type'] = itype
                 set = True
+        elif itype == None:
+            self.arguments.pop('type',None)
         return set
     def setLimit(self,limit=1):
         set = False
         if type(limit) is int:
             self.arguments['limit'] = bounds(limit,constants.VALID_IMAGE_LIMIT_MIN,constants.VALID_IMAGE_LIMIT_MAX)
             set = True
+        elif limit == None:
+            self.arguments.pop('limit',None)
         return set
 
 class Shop(APIRequest):
