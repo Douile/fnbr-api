@@ -11,7 +11,8 @@ class APIRequest():
         self.arguments = arguments
     @asyncio.coroutine
     def url(self):
-        url = constants.BASEURL + self.endpoint + yield from self.parseArguments()
+        args = yield from self.parseArguments()
+        url = constants.BASEURL + self.endpoint + args
         return url
     @asyncio.coroutine
     def parseArguments(self):
@@ -25,8 +26,10 @@ class APIRequest():
     def send(self):
         headers = {'x-api-key':self.key}
         session = aiohttp.ClientSession(headers=headers)
-        response = yield from session.get(yield from self.url())
+        url = yield from self.url()
+        response = yield from session.get(url)
         json = yield from response.json()
+        yield from session.close()
         self.response = APIResponse(response,json)
         return self.response
 
@@ -112,6 +115,7 @@ class ShopResponse():
         self.daily = []
         for i in range(0,len(json['data']['daily'])):
             self.daily.append(Item(json['data']['daily'][i]))
+        self.date = json.get('date',None)
 
 class StatResponse():
     def __init__(self,json={}):
