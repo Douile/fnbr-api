@@ -56,7 +56,7 @@ itemtype = 'outfit' # must be one of 'emote','glider','emoji','loading','outfit'
 itemlimit = 1 # integer between 1 and 15
 request = fnbr.Image(apikey,search=itemname,type=itemtype,limit=itemlimit)
 response = request.send()
-if response.status == 200 and response.type == fnbr.IMAGE_TYPE:
+if response.status == 200 and response.type == fnbr.constants.IMAGE_TYPE:
   print('Results:')
   imagedata = response.data
   for item in imagedata.results:
@@ -71,7 +71,7 @@ import fnbr
 apikey = 'YOUR_API_KEY'
 request = fnbr.Stat(apikey)
 response = request.send()
-if response.status == 200 and response.type == fnbr.STAT_TYPE:
+if response.status == 200 and response.type == fnbr.constants.STATS_TYPE:
   statdata = response.data
   print('Total cosmetics: {0}'.format(statdata.totalCosmetics))
 else:
@@ -128,7 +128,7 @@ loop = asyncio.get_event_loop()
 apikey = 'YOUR_API_KEY'
 request = fnbr.Stat(apikey)
 response = loop.run_until_complete(request.send())
-if response.status == 200 and response.type == fnbr.constants.STAT_TYPE:
+if response.status == 200 and response.type == fnbr.constants.STATS_TYPE:
   statdata = response.data
   print('Total cosmetics: {0}'.format(statdata.totalCosmetics))
 else:
