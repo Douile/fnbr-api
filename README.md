@@ -54,7 +54,7 @@ apikey = 'YOUR_API_KEY'
 itemname = 'Rex' # the search is case sensitive
 itemtype = 'outfit' # must be one of 'emote','glider','emoji','loading','outfit','pickaxe','skydive','umbrella' or 'misc'. not case sensitive
 itemlimit = 1 # integer between 1 and 15
-request = fnbr.Image(apikey,search=itemname,type=itemtype,limit=itemlimit)
+request = fnbr.Images(apikey,search=itemname,type=itemtype,limit=itemlimit)
 response = request.send()
 if response.status == 200 and response.type == fnbr.constants.IMAGE_TYPE:
   print('Results:')
@@ -109,7 +109,7 @@ apikey = 'YOUR_API_KEY'
 itemname = 'Rex' # the search is case sensitive
 itemtype = 'outfit' # must be one of 'emote','glider','emoji','loading','outfit','pickaxe','skydive','umbrella' or 'misc'. not case sensitive
 itemlimit = 1 # integer between 1 and 15
-request = fnbr.Image(apikey,search=itemname,type=itemtype,limit=itemlimit)
+request = fnbr.Images(apikey,search=itemname,type=itemtype,limit=itemlimit)
 response = loop.run_until_complete(request.send())
 if response.status == 200 and response.type == fnbr.constants.IMAGE_TYPE:
   print('Results:')
